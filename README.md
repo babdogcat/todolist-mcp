@@ -1,15 +1,14 @@
-# Todo MCP Server — Awareness-Driven Task Loop for AI Agents
+# Todo MCP — Awareness-Driven Task Loop for AI Agents
 
-> A **Model Context Protocol (MCP)** server that enforces an honest, failure-aware task execution loop for LLM-powered agents. Built with Python and FastMCP.
+> A **local task management tool** that enforces an honest, failure-aware task execution loop for LLM-powered agents. Built with Python and FastMCP, runs directly on your machine.
 
-[![MCP](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-6366f1)](https://modelcontextprotocol.io)
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB)](https://python.org)
 [![FastMCP](https://img.shields.io/badge/FastMCP-powered-00a86b)](https://github.com/jlowin/fastmcp)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 ## Overview
 
-Todo MCP Server provides a structured **task management loop** for AI agents (Claude, GPT, Gemini, etc.) via the Model Context Protocol. Instead of asking an LLM to plan and execute everything in one shot, this server enforces a **sequential awareness loop**:
+Todo MCP provides a structured **task management loop** for AI agents (Claude, GPT, Gemini, etc.). Instead of asking an LLM to plan and execute everything in one shot, this tool enforces a **sequential awareness loop** that runs locally:
 
 ```
 setup → list → execute → ANALYZE →
@@ -19,6 +18,10 @@ setup → list → execute → ANALYZE →
 ```
 
 The agent must honestly assess each task result, handle failures dynamically, and check the checklist after every step — no skipping, no pretending, no early answers.
+
+## Keywords
+
+task management, todo list, local AI tools, LLM task loop, Python task manager, FastMCP, agent workflow, task orchestration, AI task runner, sequential task execution, failure-aware agent, LLM task management, AI workflow automation, local Python tool
 
 ## Features
 
@@ -58,33 +61,7 @@ pip install fastmcp
 python todo.py
 ```
 
-### MCP Client Configuration
-
-Configure in `claude_desktop_config.json`, `mcp.json`, or your MCP client:
-
-```json
-{
-  "mcpServers": {
-    "todo_mcp": {
-      "command": "python",
-      "args": ["path/to/todo.py"]
-    }
-  }
-}
-```
-
-Or with `uvx`:
-
-```json
-{
-  "mcpServers": {
-    "todo_mcp": {
-      "command": "uvx",
-      "args": ["fastmcp", "run", "path/to/todo.py"]
-    }
-  }
-}
-```
+The tool runs locally on your machine — no cloud services, no API keys, no server setup.
 
 ## Requirements
 
@@ -93,7 +70,7 @@ Or with `uvx`:
 
 ## How It Works
 
-This server uses **docstring-driven instruction enforcement** at the MCP protocol level. Every tool's description is written as a direct command to the LLM, not just documentation.
+This tool uses **docstring-driven instruction enforcement** at the protocol level. Every tool's description is written as a direct command to the LLM, not just documentation.
 
 ### The Mechanism
 
@@ -105,7 +82,7 @@ This server uses **docstring-driven instruction enforcement** at the MCP protoco
 
 ### Token Efficiency
 
-This MCP reduces token usage by acting as an **external scratchpad**:
+This tool reduces token usage by acting as an **external scratchpad**:
 
 - State lives on the server, not repeated in conversation context
 - Compact status lines replace verbose re-stating of the plan
@@ -138,14 +115,15 @@ This MCP reduces token usage by acting as an **external scratchpad**:
 
 This tool enforces the checklist loop and the failure structure. It cannot verify the LLM actually did the work. A dishonest agent can call `todo_complete` on an unexecuted task. The awareness feature provides the **structure for honest adaptation** — but still depends on the LLM's willingness to self-critique.
 
-For best results, combine this server with **real action tools** (file I/O, API calls, command execution). When side effects are visible, pretending becomes detectable, and awareness genuinely improves execution quality.
+For best results, combine this tool with **real action tools** (file I/O, API calls, command execution). When side effects are visible, pretending becomes detectable, and awareness genuinely improves execution quality.
 
 ## Project Structure
 
 ```
 todo-mcp/
-├── todo.py         # MCP server implementation (FastMCP)
-└── README.md       # Full documentation
+├── todo.py         # Main implementation (FastMCP)
+├── README.md       # Full documentation
+└── ReadMeSEO.md    # SEO-optimized overview
 ```
 
 ## Example Prompt
@@ -159,6 +137,7 @@ Tasks:
 4. Suggest specific cuts with estimated savings
 5. Format everything into a memo
 ```
+
 ### Example 2
 ```
 ## WorkFlow
@@ -172,12 +151,4 @@ The agent works through each task one at a time, checking the checklist after ev
 
 ## Why This Approach Works
 
-LLMs treat tool descriptions and return values as actionable instructions. By crafting every message as a command for what to call *next*, the server creates a behavioral loop without any client-side enforcement. The agent quite literally cannot "see" a path to answering until the checklist is drained.
-
-## Comparison
-
-| Approach | Token Cost | Failure Handling | Adaptability |
-|---|---|---|---|
-| Single-shot prompt | High (full plan in context) | Manual recovery | Low — fixed plan |
-| Agent framework | Very high (orchestrator overhead) | Varies | Moderate |
-| **Todo MCP** | **Low (server-side state)** | **Built-in `todo_fail` + recovery** | **High — dynamic tasks** |
+LLMs treat tool descriptions and return values as actionable instructions. By crafting every message as a command for what to call *next*, the tool creates a behavioral loop without any client-side enforcement. The agent quite literally cannot "see" a path to answering until the checklist is drained.
