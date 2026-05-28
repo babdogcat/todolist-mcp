@@ -19,10 +19,6 @@ setup → list → execute → ANALYZE →
 
 The agent must honestly assess each task result, handle failures dynamically, and check the checklist after every step — no skipping, no pretending, no early answers.
 
-## Keywords
-
-task management, todo list, local AI tools, LLM task loop, Python task manager, FastMCP, agent workflow, task orchestration, AI task runner, sequential task execution, failure-aware agent, LLM task management, AI workflow automation, local Python tool
-
 ## Features
 
 - **Awareness Loop** — Forces the agent to analyze results and adapt before moving on
@@ -62,6 +58,34 @@ python todo.py
 ```
 
 The tool runs locally on your machine — no cloud services, no API keys, no server setup.
+
+### 3. Connect your AI client
+
+Add to your MCP client config (`claude_desktop_config.json`, `mcp.json`, etc.):
+
+```json
+{
+  "mcpServers": {
+    "todo_mcp": {
+      "command": "python",
+      "args": ["path/to/todo.py"]
+    }
+  }
+}
+```
+
+Or with `uvx`:
+
+```json
+{
+  "mcpServers": {
+    "todo_mcp": {
+      "command": "uvx",
+      "args": ["fastmcp", "run", "path/to/todo.py"]
+    }
+  }
+}
+```
 
 ## Requirements
 
