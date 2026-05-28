@@ -49,7 +49,7 @@ git clone https://github.com/your-username/todo-mcp.git
 cd todo-mcp
 ```
 
-Or [download the ZIP]([https://github.com/your-username/todo-mcp/archive/refs/heads/main.zip](https://github.com/babdogcat/todolist-mcp.git)) and extract it.
+Or [download the ZIP](https://github.com/babdogcat/todolist-mcp/archive/refs/heads/main.zip) and extract it.
 
 ### 2. Install & run
 
