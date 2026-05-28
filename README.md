@@ -20,10 +20,6 @@ setup → list → execute → ANALYZE →
 
 The agent must honestly assess each task result, handle failures dynamically, and check the checklist after every step — no skipping, no pretending, no early answers.
 
-## Keywords
-
-task management, todo list, MCP server, Model Context Protocol, AI agent tools, LLM task loop, Python MCP, FastMCP, agent workflow, task orchestration, AI task runner, sequential task execution, failure-aware agent, LLM task management, Claude MCP, GPT tools, AI workflow automation
-
 ## Features
 
 - **Awareness Loop** — Forces the agent to analyze results and adapt before moving on
