@@ -139,7 +139,7 @@ This tool reduces token usage by acting as an **external scratchpad**:
 
 This tool enforces the checklist loop and the failure structure. It cannot verify the LLM actually did the work. A dishonest agent can call `todo_complete` on an unexecuted task. The awareness feature provides the **structure for honest adaptation** — but still depends on the LLM's willingness to self-critique.
 
-For best results, combine this tool with **real action tools** (file I/O, API calls, command execution). When side effects are visible, pretending becomes detectable, and awareness genuinely improves execution quality.
+For best results, combine this tool with **real action tools** (file I/O, API calls, command execution, [sequential thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)). When side effects are visible, pretending becomes detectable, and awareness genuinely improves execution quality.
 
 ## Project Structure
 
